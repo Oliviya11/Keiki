@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LaunchSceneManager : MonoBehaviour
 {
@@ -26,14 +27,13 @@ public class LaunchSceneManager : MonoBehaviour
             GameObject btn = Instantiate(iconButtonPrefab, Vector3.zero, Quaternion.identity, canvas.transform);
             btn.transform.localPosition = new Vector3(x, y, 0);
             IconButton iconBtn = btn.GetComponent<IconButton>();
-            try
+            iconBtn.setData(animalIconData[i]);
+            Button btnComp = btn.GetComponent<Button>();
+            btnComp.onClick.AddListener(delegate
             {
-                iconBtn.setData(animalIconData[i]);
-            }
-            catch (Exception e)
-            {
-                Debug.LogError(i);
-            }
+                int k = i;
+                Debug.LogError(k);
+            });
             x -= X_DELTA;
             if (i == 2)
             {
