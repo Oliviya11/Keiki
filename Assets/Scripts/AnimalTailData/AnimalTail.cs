@@ -26,7 +26,7 @@ public class AnimalTail : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.LogError("On pointer down");
+        GameManager.Instance.currentAnimal.setTail(GameManager.Instance.animations[animalType]);
     }
 
     public void setData(AnimalIconData tailData, Canvas c)

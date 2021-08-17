@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Spine.Unity;
+
 public enum AnimalType
 {
     Mouse,
@@ -13,6 +16,11 @@ public class GameManager
     private static GameManager instance;
 
     public AnimalType choosenAnimal;
+
+    public Animal currentAnimal;
+
+    public readonly Dictionary<AnimalType, Animal> animations =
+        new Dictionary<AnimalType, Animal>();
 
     private GameManager()
     {

@@ -1,20 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Spine;
 using Spine.Unity;
 using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
-    [SerializeField]
-    private SkeletonAnimation skeletonAnimation;
+    public SkeletonAnimation skeletonAnimation;
     [SerializeField]
     private string tailSlotName;
+    private Attachment tailAttachment;
 
-    void Awake()
+    public void playIdle()
     {
         skeletonAnimation.loop = true;
         skeletonAnimation.AnimationName = "Idle";
-        var slot = skeletonAnimation.Skeleton.FindSlot(tailSlotName);
-        slot.Attachment = null;
+        Slot tailSlot = getSlot();
+        tailSlot.Attachment = null;
+    }
+
+    Slot getSlot()
+    {
+        return skeletonAnimation.Skeleton.FindSlot(tailSlotName);
+    }
+
+    public Attachment getAttachment()
+    {
+        return getSlot().Attachment;
+    }
+
+    public void setTail(Animal setAnimal)
+    {
+        Slot tailSlot = getSlot();
+        tailSlot.Attachment = setAnimal.getAttachment();
     }
 }
