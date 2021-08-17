@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameSceneManager : MonoBehaviour
 {
     [SerializeField]
-    private List<AnimalTailData> animalTailData;
+    private List<AnimalIconData> animalTailData;
 
     [SerializeField]
     private GameObject tailPrefab;
@@ -21,12 +21,60 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     private Canvas canvas;
 
-    public void Start()
+    [Header("Animations prefabs"), SerializeField]
+    private GameObject pigPrefab;
+    [SerializeField]
+    private GameObject catPrefab;
+    [SerializeField]
+    private GameObject dogPrefab;
+    [SerializeField]
+    private GameObject mousePrefab;
+    [SerializeField]
+    private GameObject cowPrefab;
+    [SerializeField]
+    private GameObject horsePrefab;
+
+    public void Awake()
     {
-        createChildren();
+        createAnimal();
     }
 
-    void createChildren()
+    void createAnimal()
+    {
+        GameObject prefab;
+        AnimalType animalType = GameManager.Instance.choosenAnimal;
+        if (animalType == AnimalType.Pig)
+        {
+
+        } else if (animalType == AnimalType.Cat)
+        {
+            GameObject a = Instantiate(catPrefab, Vector3.zero, Quaternion.identity);
+            a.transform.position = new Vector3(0, -2.45f, 0);
+        } else if (animalType == AnimalType.Dog)
+        {
+            GameObject a = Instantiate(dogPrefab, Vector3.zero, Quaternion.identity);
+            a.transform.position = new Vector3(0, -2.45f, 0);
+        } else if (animalType == AnimalType.Mouse)
+        {
+            GameObject a = Instantiate(mousePrefab, Vector3.zero, Quaternion.identity);
+            a.transform.position = new Vector3(0, -2.45f, 0);
+        } else if (animalType == AnimalType.Cow)
+        {
+            GameObject a = Instantiate(cowPrefab, Vector3.zero, Quaternion.identity);
+            a.transform.position = new Vector3(0, -2.45f, 0);
+        } else if (animalType == AnimalType.Horse)
+        {
+            GameObject a = Instantiate(horsePrefab, Vector3.zero, Quaternion.identity);
+            a.transform.position = new Vector3(0, -2.45f, 0);
+        }
+    }
+
+    public void Start()
+    {
+        createTails();
+    }
+
+    void createTails()
     {
         for (int i = 0; i < tails.Count; ++i)
         {
@@ -85,7 +133,7 @@ public class GameSceneManager : MonoBehaviour
     {
         if (currentOrientation != Screen.orientation || currentSafeArea != Screen.safeArea)
         {
-            createChildren();
+            createTails();
         }
     }
 }

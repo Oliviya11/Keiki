@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -15,6 +13,10 @@ public class AnimalTail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     private RectTransform rectTransform;
 
     private CanvasGroup canvasGroup;
+
+    public bool isMatch = false;
+
+    public AnimalType animalType;
 
     private void Awake()
     {
@@ -37,6 +39,7 @@ public class AnimalTail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        Debug.LogError("On End Drag");
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -44,9 +47,10 @@ public class AnimalTail : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     }
 
-    public void setData(AnimalTailData tailData, Canvas c)
+    public void setData(AnimalIconData tailData, Canvas c)
     {
         sprite.sprite = tailData.TailSprite;
         canvas = c;
+        animalType = tailData.AnimalType;
     }
 }
