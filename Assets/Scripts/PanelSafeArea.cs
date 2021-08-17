@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 public class PanelSafeArea : MonoBehaviour
 {
@@ -12,7 +9,7 @@ public class PanelSafeArea : MonoBehaviour
     public RectTransform leftPanel, rightPanel;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         panelSafeArea = GetComponent<RectTransform>();
         currentSafeArea = Screen.safeArea;
