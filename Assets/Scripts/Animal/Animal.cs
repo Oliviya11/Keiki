@@ -20,6 +20,51 @@ public class Animal : MonoBehaviour
     [SerializeField]
     private string tapAnimationName;
 
+    [SerializeField]
+    private AnimalType type;
+
+    [Header("Tails sprites")]
+    [SerializeField]
+    private SpriteRenderer catTail;
+    [SerializeField]
+    private SpriteRenderer cowTail;
+    [SerializeField]
+    private SpriteRenderer dogTail;
+    [SerializeField]
+    private SpriteRenderer horseTail;
+    [SerializeField]
+    private SpriteRenderer mouseTail;
+    [SerializeField]
+    private SpriteRenderer pigTail;
+
+    public void Awake()
+    {
+        if (catTail != null)
+        {
+            catTail.gameObject.SetActive(false);
+        }
+        if (cowTail != null)
+        {
+            cowTail.gameObject.SetActive(false);
+        }
+        if (dogTail != null)
+        {
+            dogTail.gameObject.SetActive(false);
+        }
+        if (horseTail != null)
+        {
+            horseTail.gameObject.SetActive(false);
+        }
+        if (mouseTail != null)
+        {
+            mouseTail.gameObject.SetActive(false);
+        }
+        if (pigTail != null)
+        {
+            pigTail.gameObject.SetActive(false);
+        }
+    }
+
     public string SadAnimationName
     {
         get
@@ -78,7 +123,40 @@ public class Animal : MonoBehaviour
 
     public void setTail(Animal setAnimal)
     {
-        Slot tailSlot = getSlot();
-        tailSlot.Attachment = setAnimal.getAttachment();
+        if (setAnimal.type == type)
+        {
+            Slot tailSlot = getSlot();
+            tailSlot.Attachment = setAnimal.getAttachment();
+        } else if (setAnimal.type == AnimalType.Cat)
+        {
+            setTail(catTail);
+        } else if (setAnimal.type == AnimalType.Cow)
+        {
+            setTail(cowTail);
+        } else if (setAnimal.type == AnimalType.Dog)
+        {
+            setTail(dogTail);
+        } else if (setAnimal.type == AnimalType.Horse)
+        {
+            setTail(horseTail);
+        } else if (setAnimal.type == AnimalType.Mouse)
+        {
+            setTail(mouseTail);
+        } else if (setAnimal.type == AnimalType.Pig)
+        {
+            setTail(pigTail);
+        }
+    }
+
+    void setTail(SpriteRenderer tail)
+    {
+        StartCoroutine(setTailImpl(tail));
+    }
+
+    IEnumerator setTailImpl(SpriteRenderer tail)
+    {
+        tail.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        tail.gameObject.SetActive(false);
     }
 }

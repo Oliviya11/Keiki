@@ -1196,7 +1196,8 @@ MonoBehaviour:
   mouseData: {fileID: 11400000, guid: 188a704b42f0e4bfe99792af0cf62d05, type: 2}
   cowData: {fileID: 11400000, guid: e47f112a438d7457bbd3639f25bbc0a3, type: 2}
   horseData: {fileID: 11400000, guid: b00fcc56bbcb049bcbd196984d4b1c50, type: 2}
-  pigAnimation: {fileID: 0}
+  pigAnimation: {fileID: 7511334469950750308, guid: f7a48f53aa876424db326a30b5ad3e3c,
+    type: 3}
   catAnimation: {fileID: 8392227097510572494, guid: 8ce04da68e5ba44518377a6288540e50,
     type: 3}
   dogAnimation: {fileID: 1667336259410405425, guid: a07533d997c4a4a0da1149fa62575ec8,

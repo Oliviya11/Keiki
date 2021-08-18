@@ -195,6 +195,7 @@ public class GameSceneManager : MonoBehaviour
         GameManager.Instance.animations[AnimalType.Mouse] = mouseAnimation.GetComponent<Animal>();
         GameManager.Instance.animations[AnimalType.Cow] = cowAnimation.GetComponent<Animal>();
         GameManager.Instance.animations[AnimalType.Horse] = horseAnimation.GetComponent<Animal>();
+        GameManager.Instance.animations[AnimalType.Pig] = pigAnimation.GetComponent<Animal>();
     }
 
     public void Start()
