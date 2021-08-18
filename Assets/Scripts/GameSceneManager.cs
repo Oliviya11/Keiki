@@ -25,7 +25,8 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     private Canvas canvas;
 
-    [Header("Animals skeleton data assets"), SerializeField]
+    [Header("Animals skeleton data assets")]
+    [SerializeField]
     private SkeletonDataAsset pigData;
     [SerializeField]
     private SkeletonDataAsset catData;
@@ -57,6 +58,15 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     private Button homeButton;
 
+    [SerializeField]
+    private Button animalButton;
+
+    [Header("Timers")]
+    [SerializeField]
+    private Timer timer7s;
+    [SerializeField]
+    private Timer timer14s;
+
     private bool isMenuLoad = false;
 
     public void Awake()
@@ -64,6 +74,13 @@ public class GameSceneManager : MonoBehaviour
         GameManager.Instance.gameSceneManager = this;
         createAnimal();
         homeButton.onClick.AddListener(loadMenuScene);
+        animalButton.onClick.AddListener(launchTapAnimation);
+        GameManager.Instance.initWithTimers(timer7s, timer14s);
+    }
+
+    void launchTapAnimation()
+    {
+        GameManager.Instance.currentAnimal.playTap();
     }
 
     void loadMenuScene()
@@ -122,28 +139,32 @@ public class GameSceneManager : MonoBehaviour
         else if (animalType == AnimalType.Cat)
         {
             animalGameObject = Instantiate(catAnimation, Vector3.zero, Quaternion.identity);
+            animalGameObject.transform.position = new Vector3(0, -2.45f, 0);
 
         }
         else if (animalType == AnimalType.Dog)
         {
             animalGameObject = Instantiate(dogAnimation, Vector3.zero, Quaternion.identity);
+            animalGameObject.transform.position = new Vector3(0, -2.45f, 0);
         }
         else if (animalType == AnimalType.Mouse)
         {
             animalGameObject = Instantiate(mouseAnimation, Vector3.zero, Quaternion.identity);
+            animalGameObject.transform.position = new Vector3(0, -2.45f, 0);
         }
         else if (animalType == AnimalType.Cow)
         {
             animalGameObject = Instantiate(cowAnimation, Vector3.zero, Quaternion.identity);
+            animalGameObject.transform.position = new Vector3(0, -2.45f, 0);
         }
         else if (animalType == AnimalType.Horse)
         {
             animalGameObject = Instantiate(horseAnimation, Vector3.zero, Quaternion.identity);
+            animalGameObject.transform.position = new Vector3(0, -4f, 0);
         }
 
         Animal animal = animalGameObject.GetComponent<Animal>();
         GameManager.Instance.currentAnimal = animal;
-        animalGameObject.transform.position = new Vector3(0, -2.45f, 0);
         animal.playIdle();
 
         GameManager.Instance.animations[AnimalType.Cat] = catAnimation.GetComponent<Animal>();
@@ -176,6 +197,8 @@ public class GameSceneManager : MonoBehaviour
             AnimalTail animalTail = tail.GetComponent<AnimalTail>();
             animalTail.setData(animalTailData[i], canvas);
             tailTransform.anchoredPosition = Vector2.zero;
+
+            GameManager.Instance.pulsingTails.Add(tail.GetComponent <Pulsing>());
 
             if (i == 0)
             {

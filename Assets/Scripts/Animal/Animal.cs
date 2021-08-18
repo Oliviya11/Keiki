@@ -17,6 +17,8 @@ public class Animal : MonoBehaviour
     private string idleAnimationName = "Idle";
     [SerializeField]
     private string sadAnimationName;
+    [SerializeField]
+    private string tapAnimationName;
 
     public string SadAnimationName
     {
@@ -55,6 +57,11 @@ public class Animal : MonoBehaviour
     public void playYes()
     {
         StartCoroutine(playAnimationAndWait(yesAnimationName, idleAnimationName));
+    }
+
+    public void playTap()
+    {
+        StartCoroutine(playAnimationAndWait(tapAnimationName, idleAnimationName));
     }
 
     IEnumerator playAnimationAndWait(string animationName, string afterAnimation)

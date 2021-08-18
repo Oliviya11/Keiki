@@ -135,3 +135,4 @@ MonoBehaviour:
   noAnimationName: Idle_say_no
   yesAnimationName: Dance
   sadAnimationName: sad
+  tapAnimationName: Tap

@@ -135,3 +135,4 @@ MonoBehaviour:
   noAnimationName: No
   yesAnimationName: Jump
   sadAnimationName: Sad
+  tapAnimationName: Tap
