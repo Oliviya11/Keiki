@@ -34,4 +34,20 @@ public class GameManager
             return instance;
         }
     }
+
+
+    public void onAnimalTailChoosen(AnimalType tailType)
+    {
+        currentAnimal.setTail(animations[tailType]);
+        if (tailType != choosenAnimalType)
+        {
+            currentAnimal.playNo();
+            SoundManager.playIASound();
+        }
+        else
+        {
+            currentAnimal.playYes();
+            SoundManager.playCASound();
+        }
+    }
 }

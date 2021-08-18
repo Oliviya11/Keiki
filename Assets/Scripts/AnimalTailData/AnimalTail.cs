@@ -26,14 +26,7 @@ public class AnimalTail : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        GameManager.Instance.currentAnimal.setTail(GameManager.Instance.animations[animalType]);
-        if (animalType != GameManager.Instance.choosenAnimalType)
-        {
-            GameManager.Instance.currentAnimal.playNo();
-        } else
-        {
-            GameManager.Instance.currentAnimal.playYes();
-        }
+        GameManager.Instance.onAnimalTailChoosen(animalType);
     }
 
     public void setData(AnimalIconData tailData, Canvas c)
