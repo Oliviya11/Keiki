@@ -14,12 +14,30 @@ public class Animal : MonoBehaviour
     private string noAnimationName;
     [SerializeField]
     private string yesAnimationName;
-    private string idle = "Idle";
+    private string idleAnimationName = "Idle";
+    [SerializeField]
+    private string sadAnimationName;
+
+    public string SadAnimationName
+    {
+        get
+        {
+            return sadAnimationName;
+        }
+    }
+
+    public string IdleAnimationName
+    {
+        get
+        {
+            return idleAnimationName;
+        }
+    }
 
     public void playIdle()
     {
         skeletonAnimation.loop = true;
-        skeletonAnimation.AnimationName = idle;
+        skeletonAnimation.AnimationName = idleAnimationName;
         Slot tailSlot = getSlot();
         tailSlot.Attachment = null;
     }
@@ -29,21 +47,21 @@ public class Animal : MonoBehaviour
         return skeletonAnimation.Skeleton.FindSlot(tailSlotName);
     }
 
-    public void playNo()
+    public void playNo(string afterAnimation)
     {
-        StartCoroutine(playAnimationAndWait(noAnimationName));
+        StartCoroutine(playAnimationAndWait(noAnimationName, afterAnimation));
     }
 
     public void playYes()
     {
-        StartCoroutine(playAnimationAndWait(yesAnimationName));
+        StartCoroutine(playAnimationAndWait(yesAnimationName, idleAnimationName));
     }
 
-    IEnumerator playAnimationAndWait(string animationName)
+    IEnumerator playAnimationAndWait(string animationName, string afterAnimation)
     {
         skeletonAnimation.AnimationName = animationName;
         yield return new WaitForSeconds(1f);
-        skeletonAnimation.AnimationName = idle;
+        skeletonAnimation.AnimationName = afterAnimation;
     }
 
     public Attachment getAttachment()

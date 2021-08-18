@@ -24,6 +24,13 @@ public class GameManager
     public readonly Dictionary<AnimalType, Animal> animations =
         new Dictionary<AnimalType, Animal>();
 
+    private int incorrectChoicesCounter = 0;
+
+    public void reset()
+    {
+        incorrectChoicesCounter = 0;
+    }
+
     private GameManager()
     {
     }
@@ -43,7 +50,16 @@ public class GameManager
         currentAnimal.setTail(animations[tailType]);
         if (tailType != choosenAnimalType)
         {
-            currentAnimal.playNo();
+            incorrectChoicesCounter++;
+
+            if (incorrectChoicesCounter <= 2)
+            {
+                currentAnimal.playNo(currentAnimal.IdleAnimationName);
+            } else
+            {
+                currentAnimal.playNo(currentAnimal.SadAnimationName);
+            }
+            
             SoundManager.playIASound();
         }
         else

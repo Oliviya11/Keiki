@@ -134,3 +134,4 @@ MonoBehaviour:
   tailSlotName: Tail
   noAnimationName: Idle_say_no
   yesAnimationName: Dance
+  sadAnimationName: sad

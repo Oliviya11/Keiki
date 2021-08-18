@@ -134,3 +134,4 @@ MonoBehaviour:
   tailSlotName: img/Tail
   noAnimationName: No
   yesAnimationName: Jump
+  sadAnimationName: Sad
