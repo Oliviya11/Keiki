@@ -19,6 +19,8 @@ public class GameManager
 
     public Animal currentAnimal;
 
+    public GameSceneManager gameSceneManager;
+
     public readonly Dictionary<AnimalType, Animal> animations =
         new Dictionary<AnimalType, Animal>();
 
@@ -48,6 +50,7 @@ public class GameManager
         {
             currentAnimal.playYes();
             SoundManager.playCASound();
+            gameSceneManager.waitAndloadMenuScene();
         }
     }
 }

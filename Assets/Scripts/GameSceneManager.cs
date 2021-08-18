@@ -57,15 +57,22 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     private Button homeButton;
 
+    private bool isMenuLoad = false;
+
     public void Awake()
     {
+        GameManager.Instance.gameSceneManager = this;
         createAnimal();
         homeButton.onClick.AddListener(loadMenuScene);
     }
 
     void loadMenuScene()
     {
-        SceneManager.LoadScene("Menu");
+        if (!isMenuLoad)
+        {
+            SceneManager.LoadScene("Menu");
+            isMenuLoad = true;
+        }
     }
 
     IEnumerator playSound()
@@ -222,5 +229,16 @@ public class GameSceneManager : MonoBehaviour
         {
             createTails();
         }
+    }
+
+    public void waitAndloadMenuScene()
+    {
+        StartCoroutine(waitAndloadMenuSceneImpl());
+    }
+
+    IEnumerator waitAndloadMenuSceneImpl ()
+    {
+        yield return new WaitForSeconds(2f);
+        loadMenuScene();
     }
 }
