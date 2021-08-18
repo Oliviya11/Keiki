@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0151705fc7fc044a089531d3cbc60275, type: 3}
   m_Name: CatIconData
   m_EditorClassIdentifier: 
+  animalType: 5
   animalIcon: {fileID: 21300000, guid: 197e4ea405d644fafa35b4d4c28d9ae3, type: 3}
+  tailSprite: {fileID: 21300000, guid: af61b3399c2b14271b70b43a4835f408, type: 3}

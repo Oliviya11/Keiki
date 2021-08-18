@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LaunchSceneManager : MonoBehaviour
@@ -29,10 +30,14 @@ public class LaunchSceneManager : MonoBehaviour
             IconButton iconBtn = btn.GetComponent<IconButton>();
             iconBtn.setData(animalIconData[i]);
             Button btnComp = btn.GetComponent<Button>();
+            int k = i;
+            if (animalIconData[k].AnimalType == AnimalType.Pig)
+            {
+                btnComp.interactable = false;
+            }
             btnComp.onClick.AddListener(delegate
             {
-                int k = i;
-                Debug.LogError(k);
+                onButtonClick(animalIconData[k].AnimalType);
             });
             x -= X_DELTA;
             if (i == 2)
@@ -41,5 +46,13 @@ public class LaunchSceneManager : MonoBehaviour
                 y -= 2 * Y_DELTA;
             }
         }
+    }
+
+    public void onButtonClick(AnimalType animal)
+    {
+        GameManager.Instance.reset();
+        GameManager.Instance.choosenAnimalType = animal;
+        //Debug.LogError(animal);
+        SceneManager.LoadScene("Game");
     }
 }
