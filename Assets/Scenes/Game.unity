@@ -734,15 +734,15 @@ MonoBehaviour:
   cowData: {fileID: 11400000, guid: e47f112a438d7457bbd3639f25bbc0a3, type: 2}
   horseData: {fileID: 11400000, guid: b00fcc56bbcb049bcbd196984d4b1c50, type: 2}
   pigAnimation: {fileID: 0}
-  catAnimation: {fileID: 8392227097510572481, guid: 8ce04da68e5ba44518377a6288540e50,
+  catAnimation: {fileID: 8392227097510572494, guid: 8ce04da68e5ba44518377a6288540e50,
     type: 3}
-  dogAnimation: {fileID: 1667336259410405438, guid: a07533d997c4a4a0da1149fa62575ec8,
+  dogAnimation: {fileID: 1667336259410405425, guid: a07533d997c4a4a0da1149fa62575ec8,
     type: 3}
-  mouseAnimation: {fileID: 2893360952257825153, guid: ab0526ba9417244168caec048a4415f7,
+  mouseAnimation: {fileID: 2893360952257825166, guid: ab0526ba9417244168caec048a4415f7,
     type: 3}
-  cowAnimation: {fileID: 3075361596761837680, guid: b161a0bbb1ee24253a4a28c10bd76a04,
+  cowAnimation: {fileID: 3075361596761837695, guid: b161a0bbb1ee24253a4a28c10bd76a04,
     type: 3}
-  horseAnimation: {fileID: 6677418051978753060, guid: 213729bfe3c774658b0baf168667b101,
+  horseAnimation: {fileID: 6677418051978753067, guid: 213729bfe3c774658b0baf168667b101,
     type: 3}
   animalPrefab: {fileID: 8392227097510572494, guid: 8ce04da68e5ba44518377a6288540e50,
     type: 3}

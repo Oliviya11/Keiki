@@ -132,3 +132,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonAnimation: {fileID: 2893360952257825165}
   tailSlotName: Tail
+  noAnimationName: Idle_say_no
+  yesAnimationName: Dance

@@ -46,7 +46,7 @@ public class LaunchSceneManager : MonoBehaviour
 
     public void onButtonClick(AnimalType animal)
     {
-        GameManager.Instance.choosenAnimal = animal;
+        GameManager.Instance.choosenAnimalType = animal;
         //Debug.LogError(animal);
         SceneManager.LoadScene("Game");
     }

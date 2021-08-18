@@ -10,7 +10,7 @@ public class TailSlot : MonoBehaviour, IDropHandler
             GameObject pointerDrag = eventData.pointerDrag;
             AnimalTail animalTail = pointerDrag.GetComponent<AnimalTail>();
             RectTransform rt = eventData.pointerDrag.GetComponent<RectTransform>();
-            if (animalTail.animalType == GameManager.Instance.choosenAnimal)
+            if (animalTail.animalType == GameManager.Instance.choosenAnimalType)
             {
                 rt.position = GetComponent<RectTransform>().position;
             } else

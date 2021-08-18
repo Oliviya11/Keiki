@@ -37,17 +37,17 @@ public class GameSceneManager : MonoBehaviour
     private SkeletonDataAsset horseData;
 
     [Header("Animals"), SerializeField]
-    private Animal pigAnimation;
+    private GameObject pigAnimation;
     [SerializeField]
-    private Animal catAnimation;
+    private GameObject catAnimation;
     [SerializeField]
-    private Animal dogAnimation;
+    private GameObject dogAnimation;
     [SerializeField]
-    private Animal mouseAnimation;
+    private GameObject mouseAnimation;
     [SerializeField]
-    private Animal cowAnimation;
+    private GameObject cowAnimation;
     [SerializeField]
-    private Animal horseAnimation;
+    private GameObject horseAnimation;
 
     [SerializeField]
     private GameObject animalPrefab;
@@ -60,38 +60,46 @@ public class GameSceneManager : MonoBehaviour
     void createAnimal()
     {
         GameObject prefab;
-        AnimalType animalType = GameManager.Instance.choosenAnimal;
-        GameObject animalGameObject = Instantiate(animalPrefab, Vector3.zero, Quaternion.identity);
-        animalGameObject.transform.position = new Vector3(0, -2.45f, 0);
-        Animal animal = animalGameObject.GetComponent<Animal>();
-        GameManager.Instance.currentAnimal = animal;
+        AnimalType animalType = GameManager.Instance.choosenAnimalType;
+        GameObject animalGameObject = null;
+
 
         if (animalType == AnimalType.Pig)
         {
 
-        } else if (animalType == AnimalType.Cat)
-        {
-            animal.skeletonAnimation.skeletonDataAsset = catData;
-        } else if (animalType == AnimalType.Dog)
-        {
-            animal.skeletonAnimation.skeletonDataAsset = dogData;
-        } else if (animalType == AnimalType.Mouse)
-        {
-            animal.skeletonAnimation.skeletonDataAsset = mouseData;
-        } else if (animalType == AnimalType.Cow)
-        {
-            animal.skeletonAnimation.skeletonDataAsset = cowData;
-        } else if (animalType == AnimalType.Horse)
-        {
-            animal.skeletonAnimation.skeletonDataAsset = horseData;
         }
+        else if (animalType == AnimalType.Cat)
+        {
+            animalGameObject = Instantiate(catAnimation, Vector3.zero, Quaternion.identity);
+
+        }
+        else if (animalType == AnimalType.Dog)
+        {
+            animalGameObject = Instantiate(dogAnimation, Vector3.zero, Quaternion.identity);
+        }
+        else if (animalType == AnimalType.Mouse)
+        {
+            animalGameObject = Instantiate(mouseAnimation, Vector3.zero, Quaternion.identity);
+        }
+        else if (animalType == AnimalType.Cow)
+        {
+            animalGameObject = Instantiate(cowAnimation, Vector3.zero, Quaternion.identity);
+        }
+        else if (animalType == AnimalType.Horse)
+        {
+            animalGameObject = Instantiate(horseAnimation, Vector3.zero, Quaternion.identity);
+        }
+
+        Animal animal = animalGameObject.GetComponent<Animal>();
+        GameManager.Instance.currentAnimal = animal;
+        animalGameObject.transform.position = new Vector3(0, -2.45f, 0);
         animal.playIdle();
 
-        GameManager.Instance.animations[AnimalType.Cat] = catAnimation;
-        GameManager.Instance.animations[AnimalType.Dog] = dogAnimation;
-        GameManager.Instance.animations[AnimalType.Mouse] = mouseAnimation;
-        GameManager.Instance.animations[AnimalType.Cow] = cowAnimation;
-        GameManager.Instance.animations[AnimalType.Horse] = horseAnimation;
+        GameManager.Instance.animations[AnimalType.Cat] = catAnimation.GetComponent<Animal>();
+        GameManager.Instance.animations[AnimalType.Dog] = dogAnimation.GetComponent<Animal>();
+        GameManager.Instance.animations[AnimalType.Mouse] = mouseAnimation.GetComponent<Animal>();
+        GameManager.Instance.animations[AnimalType.Cow] = cowAnimation.GetComponent<Animal>();
+        GameManager.Instance.animations[AnimalType.Horse] = horseAnimation.GetComponent<Animal>();
     }
 
     public void Start()

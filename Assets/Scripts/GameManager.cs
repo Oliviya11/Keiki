@@ -15,7 +15,7 @@ public class GameManager
 {
     private static GameManager instance;
 
-    public AnimalType choosenAnimal;
+    public AnimalType choosenAnimalType;
 
     public Animal currentAnimal;
 

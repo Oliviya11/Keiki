@@ -132,3 +132,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonAnimation: {fileID: 3075361596761837692}
   tailSlotName: img/Tail
+  noAnimationName: No
+  yesAnimationName: Jump
