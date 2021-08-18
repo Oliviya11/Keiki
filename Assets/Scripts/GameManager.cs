@@ -35,6 +35,8 @@ public class GameManager
 
     private Timer timer7s, timer14s;
 
+    private bool isCorrectAnswerChoosen = false;
+
     enum TimerState
     {
         None,
@@ -93,6 +95,7 @@ public class GameManager
         animations.Clear();
         pulsingTails.Clear();
         timerState = TimerState.None;
+        isCorrectAnswerChoosen = false;
     }
 
     private GameManager()
@@ -140,6 +143,11 @@ public class GameManager
 
     public void onAnimalTailChoosen(AnimalType tailType)
     {
+        if (isCorrectAnswerChoosen)
+        {
+            return;
+        }
+
         if (animations.ContainsKey(tailType))
         {
             currentAnimal.setTail(animations[tailType]);
@@ -162,6 +170,7 @@ public class GameManager
             }
             else
             {
+                isCorrectAnswerChoosen = true;
                 currentAnimal.playYes();
                 SoundManager.playCASound();
                 gameSceneManager.waitAndloadMenuScene();
