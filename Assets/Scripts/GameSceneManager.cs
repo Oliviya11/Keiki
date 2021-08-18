@@ -218,7 +218,12 @@ public class GameSceneManager : MonoBehaviour
             tails.Add(tail);
             RectTransform tailTransform = tail.GetComponent<RectTransform>();
             AnimalTail animalTail = tail.GetComponent<AnimalTail>();
+            
             animalTail.setData(animalTailData[i], canvas);
+            if (GameManager.Instance.choosenAnimalType == animalTail.animalType)
+            {
+                GameManager.Instance.rightAnimalTail = animalTail;
+            }
             tailTransform.anchoredPosition = Vector2.zero;
 
             GameManager.Instance.pulsingTails.Add(tail.GetComponent <Pulsing>());

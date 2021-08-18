@@ -12,6 +12,9 @@ public class AnimalTail : MonoBehaviour, IPointerDownHandler
     [SerializeField]
     private Image shine;
 
+    [SerializeField]
+    private Image hand;
+
     private Canvas canvas;
 
     private RectTransform rectTransform;
@@ -27,6 +30,7 @@ public class AnimalTail : MonoBehaviour, IPointerDownHandler
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         setShine(false);
+        setHand(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -45,6 +49,11 @@ public class AnimalTail : MonoBehaviour, IPointerDownHandler
     public void setShine(bool val)
     {
         shine.gameObject.SetActive(val);
+    }
+
+    public void setHand(bool val)
+    {
+        hand.gameObject.SetActive(val);
     }
 
     IEnumerator switchOnShineAndSwitchOffShine()

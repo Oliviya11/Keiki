@@ -20,6 +20,8 @@ public class GameManager
 
     public Animal currentAnimal;
 
+    public AnimalTail rightAnimalTail;
+
     public GameSceneManager gameSceneManager;
 
     public readonly Dictionary<AnimalType, Animal> animations =
@@ -76,6 +78,10 @@ public class GameManager
     void resetTimers()
     {
         stopPulseTails();
+        if (timerState == TimerState.Timer14s)
+        {
+            rightAnimalTail.setHand(false);
+        }
         timerState = TimerState.None;
         timer7s.reset(7);
         timer14s.reset(14);
@@ -99,6 +105,11 @@ public class GameManager
             {
                 pulsingTails[i].pulse();
             }
+        }
+
+        if (timerState == TimerState.Timer14s)
+        {
+            rightAnimalTail.setHand(true);
         }
     }
 
