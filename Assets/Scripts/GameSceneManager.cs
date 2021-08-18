@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Spine;
 using Spine.Unity;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -52,17 +54,59 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     private GameObject animalPrefab;
 
+    [SerializeField]
+    private Button homeButton;
+
     public void Awake()
     {
         createAnimal();
+        homeButton.onClick.AddListener(loadMenuScene);
+    }
+
+    void loadMenuScene()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    IEnumerator playSound()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        AnimalType animalType = GameManager.Instance.choosenAnimalType;
+
+        if (animalType == AnimalType.Pig)
+        {
+            SoundManager.playPigTailSound();
+        }
+        else if (animalType == AnimalType.Cat)
+        {
+            SoundManager.playCatTailSound();
+        }
+        else if (animalType == AnimalType.Dog)
+        {
+            SoundManager.playDogTailSound();
+        }
+        else if (animalType == AnimalType.Mouse)
+        {
+            SoundManager.playMouseTailSound();
+        }
+        else if (animalType == AnimalType.Cow)
+        {
+            SoundManager.playCowTailSound();
+        }
+        else if (animalType == AnimalType.Horse)
+        {
+            SoundManager.playHorseTailSound();
+        }
     }
 
     void createAnimal()
     {
+        StartCoroutine(playSound());
+
         GameObject prefab;
         AnimalType animalType = GameManager.Instance.choosenAnimalType;
         GameObject animalGameObject = null;
-
 
         if (animalType == AnimalType.Pig)
         {
@@ -109,13 +153,8 @@ public class GameSceneManager : MonoBehaviour
 
     void createTails()
     {
-        for (int i = 0; i < tails.Count; ++i)
-        {
-            Destroy(tails[i]);
-        }
 
-        tails.Clear();
-
+        clearTails();
         Rect safeArea = Screen.safeArea;
 
         for (int i = 0; i < 6; ++i)
@@ -134,7 +173,7 @@ public class GameSceneManager : MonoBehaviour
 
             if (i == 0)
             {
-                tailTransform.localPosition = new Vector3(leftPanel.sizeDelta.x * 0.15f, 0.3f * Screen.height);
+                tailTransform.localPosition = new Vector3(leftPanel.sizeDelta.x * 0.15f, 0.4f * Screen.height);
             }
             else if (i == 1)
             {
@@ -142,11 +181,11 @@ public class GameSceneManager : MonoBehaviour
             }
             else if (i == 2)
             {
-                tailTransform.localPosition = new Vector3(leftPanel.sizeDelta.x * 0.15f, -0.3f * Screen.height);
+                tailTransform.localPosition = new Vector3(leftPanel.sizeDelta.x * 0.15f, -0.4f * Screen.height);
             }
             else if (i == 3)
             {
-                tailTransform.localPosition = new Vector3(-leftPanel.sizeDelta.x * 0.15f, 0.3f * Screen.height);
+                tailTransform.localPosition = new Vector3(-leftPanel.sizeDelta.x * 0.15f, 0.4f * Screen.height);
             }
             else if (i == 4)
             {
@@ -154,12 +193,22 @@ public class GameSceneManager : MonoBehaviour
             }
             else if (i == 5)
             {
-                tailTransform.localPosition = new Vector3(-leftPanel.sizeDelta.x * 0.15f, -0.3f * Screen.height);
+                tailTransform.localPosition = new Vector3(-leftPanel.sizeDelta.x * 0.15f, -0.4f * Screen.height);
             }
         }
 
         currentSafeArea = safeArea;
         currentOrientation = Screen.orientation;
+    }
+
+    void clearTails()
+    {
+        for (int i = 0; i < tails.Count; ++i)
+        {
+            Destroy(tails[i]);
+        }
+
+        tails.Clear();
     }
 
     void Update()

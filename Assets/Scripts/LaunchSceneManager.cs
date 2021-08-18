@@ -31,6 +31,10 @@ public class LaunchSceneManager : MonoBehaviour
             iconBtn.setData(animalIconData[i]);
             Button btnComp = btn.GetComponent<Button>();
             int k = i;
+            if (animalIconData[k].AnimalType == AnimalType.Pig)
+            {
+                btnComp.interactable = false;
+            }
             btnComp.onClick.AddListener(delegate
             {
                 onButtonClick(animalIconData[k].AnimalType);
