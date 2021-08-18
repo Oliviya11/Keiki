@@ -78,7 +78,7 @@ public class GameManager
     void resetTimers()
     {
         stopPulseTails();
-        if (timerState == TimerState.Timer14s)
+        if (rightAnimalTail != null)
         {
             rightAnimalTail.setHand(false);
         }
@@ -90,6 +90,9 @@ public class GameManager
     public void reset()
     {
         incorrectChoicesCounter = 0;
+        animations.Clear();
+        pulsingTails.Clear();
+        timerState = TimerState.None;
     }
 
     private GameManager()
