@@ -46,8 +46,13 @@ public class PanelSafeArea : MonoBehaviour
         panelSafeArea.anchorMin = anchorMin;
         panelSafeArea.anchorMax = anchorMax;
 
-        leftPanel.sizeDelta = new Vector2((safeArea.size.x / 2f), leftPanel.sizeDelta.y);
-        rightPanel.sizeDelta = new Vector2((safeArea.size.x / 2f), leftPanel.sizeDelta.y);
+        //leftPanel.sizeDelta = new Vector2((safeArea.size.x / 2f), leftPanel.sizeDelta.y);
+        //rightPanel.sizeDelta = new Vector2((safeArea.size.x / 2f), leftPanel.sizeDelta.y);
+        leftPanel.anchorMin = new Vector2(0, 0);
+        leftPanel.anchorMax = new Vector2(0, 1);
+
+        rightPanel.anchorMin = new Vector2(1, 0);
+        rightPanel.anchorMax = new Vector2(1, 1);
 
         currentOrientation = Screen.orientation;
         currentSafeArea = Screen.safeArea;
