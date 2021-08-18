@@ -153,7 +153,6 @@ public class GameSceneManager : MonoBehaviour
 
     void createTails()
     {
-
         clearTails();
         Rect safeArea = Screen.safeArea;
 
@@ -169,31 +168,37 @@ public class GameSceneManager : MonoBehaviour
             RectTransform tailTransform = tail.GetComponent<RectTransform>();
             AnimalTail animalTail = tail.GetComponent<AnimalTail>();
             animalTail.setData(animalTailData[i], canvas);
-            tailTransform.localPosition = new Vector3();
+            tailTransform.anchoredPosition = Vector2.zero;
 
             if (i == 0)
             {
-                tailTransform.localPosition = new Vector3(leftPanel.sizeDelta.x * 0.15f, 0.4f * Screen.height);
+                tailTransform.anchorMin = new Vector2(0.65f, 0.8f);
+                tailTransform.anchorMax = new Vector2(0.65f, 0.8f);
             }
             else if (i == 1)
             {
-                tailTransform.localPosition = new Vector3(leftPanel.sizeDelta.x * 0.3f, 0);
+                tailTransform.anchorMin = new Vector2(0.7f, 0.5f);
+                tailTransform.anchorMax = new Vector2(0.7f, 0.5f);
             }
             else if (i == 2)
             {
-                tailTransform.localPosition = new Vector3(leftPanel.sizeDelta.x * 0.15f, -0.4f * Screen.height);
+                tailTransform.anchorMin = new Vector2(0.65f, 0.2f);
+                tailTransform.anchorMax = new Vector2(0.65f, 0.2f);
             }
             else if (i == 3)
             {
-                tailTransform.localPosition = new Vector3(-leftPanel.sizeDelta.x * 0.15f, 0.4f * Screen.height);
+                tailTransform.anchorMin = new Vector2(0.35f, 0.8f);
+                tailTransform.anchorMax = new Vector2(0.35f, 0.8f);
             }
             else if (i == 4)
             {
-                tailTransform.localPosition = new Vector3(-leftPanel.sizeDelta.x * 0.3f, 0);
+                tailTransform.anchorMin = new Vector2(0.3f, 0.5f);
+                tailTransform.anchorMax = new Vector2(0.3f, 0.5f);
             }
             else if (i == 5)
             {
-                tailTransform.localPosition = new Vector3(-leftPanel.sizeDelta.x * 0.15f, -0.4f * Screen.height);
+                tailTransform.anchorMin = new Vector2(0.35f, 0.2f);
+                tailTransform.anchorMax = new Vector2(0.35f, 0.2f);
             }
         }
 
