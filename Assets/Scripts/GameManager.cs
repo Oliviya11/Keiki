@@ -140,35 +140,39 @@ public class GameManager
 
     public void onAnimalTailChoosen(AnimalType tailType)
     {
-        currentAnimal.setTail(animations[tailType]);
-        bool isCorrectChoice = tailType == choosenAnimalType;
-        if (!isCorrectChoice)
+        if (animations.ContainsKey(tailType))
         {
-            incorrectChoicesCounter++;
+            currentAnimal.setTail(animations[tailType]);
+        }
+            bool isCorrectChoice = tailType == choosenAnimalType;
+            if (!isCorrectChoice)
+            {
+                incorrectChoicesCounter++;
 
-            if (incorrectChoicesCounter <= 2)
-            {
-                currentAnimal.playNo(currentAnimal.IdleAnimationName);
-            } else
-            {
-                currentAnimal.playNo(currentAnimal.SadAnimationName);
+                if (incorrectChoicesCounter <= 2)
+                {
+                    currentAnimal.playNo(currentAnimal.IdleAnimationName);
+                }
+                else
+                {
+                    currentAnimal.playNo(currentAnimal.SadAnimationName);
+                }
+
+                SoundManager.playIASound();
             }
-            
-            SoundManager.playIASound();
-        }
-        else
-        {
-            currentAnimal.playYes();
-            SoundManager.playCASound();
-            gameSceneManager.waitAndloadMenuScene();
-        }
+            else
+            {
+                currentAnimal.playYes();
+                SoundManager.playCASound();
+                gameSceneManager.waitAndloadMenuScene();
+            }
 
-        bool isBeforeTimer14 = timerState == TimerState.Timer7s || timerState == TimerState.None;
-        bool isTimer14Reset = timerState == TimerState.Timer14s && isCorrectChoice;
+            bool isBeforeTimer14 = timerState == TimerState.Timer7s || timerState == TimerState.None;
+            bool isTimer14Reset = timerState == TimerState.Timer14s && isCorrectChoice;
 
-        if (isBeforeTimer14 || isTimer14Reset)
-        {
-            resetTimers();
-        }
+            if (isBeforeTimer14 || isTimer14Reset)
+            {
+                resetTimers();
+            }
     }
 }
