@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Spine;
 using Spine.Unity;
@@ -92,10 +93,20 @@ public class GameSceneManager : MonoBehaviour
         }
     }
 
-    IEnumerator playSound()
+    void playSound()
+    {
+        StartCoroutine(playSoundImpl());
+    }
+
+    IEnumerator playSoundImpl()
     {
         yield return new WaitForSeconds(0.1f);
 
+        playWhereIsMyTail();
+    }
+
+    void playWhereIsMyTail()
+    {
         AnimalType animalType = GameManager.Instance.choosenAnimalType;
 
         if (animalType == AnimalType.Pig)
@@ -124,9 +135,21 @@ public class GameSceneManager : MonoBehaviour
         }
     }
 
+    public void playSoundAndAction(Action action)
+    {
+        StartCoroutine(playSoundAndActionImpl(action));
+    }
+
+    IEnumerator playSoundAndActionImpl(Action action)
+    {
+        playWhereIsMyTail();
+        yield return new WaitForSeconds(1);
+        action();
+    }
+
     void createAnimal()
     {
-        StartCoroutine(playSound());
+        playSound();
 
         GameObject prefab;
         AnimalType animalType = GameManager.Instance.choosenAnimalType;

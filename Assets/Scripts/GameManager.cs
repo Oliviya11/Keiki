@@ -59,13 +59,18 @@ public class GameManager
     void onTimer7sEnd()
     {
         timerState = TimerState.Timer7s;
-        pulseTails();
+        playSoundAndStartPulse();
     }
 
     void onTimer14sEnd()
     {
         timerState = TimerState.Timer14s;
-        pulseTails();
+        playSoundAndStartPulse();
+    }
+
+    void playSoundAndStartPulse()
+    {
+        gameSceneManager.playSoundAndAction(pulseTails);
     }
 
     void resetTimers()
