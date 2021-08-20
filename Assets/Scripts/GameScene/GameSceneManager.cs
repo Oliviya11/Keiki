@@ -27,20 +27,6 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     private Canvas canvas;
 
-    [Header("Animals skeleton data assets")]
-    [SerializeField]
-    private SkeletonDataAsset pigData;
-    [SerializeField]
-    private SkeletonDataAsset catData;
-    [SerializeField]
-    private SkeletonDataAsset dogData;
-    [SerializeField]
-    private SkeletonDataAsset mouseData;
-    [SerializeField]
-    private SkeletonDataAsset cowData;
-    [SerializeField]
-    private SkeletonDataAsset horseData;
-
     [Header("Animals"), SerializeField]
     private GameObject pigAnimation;
     [SerializeField]
