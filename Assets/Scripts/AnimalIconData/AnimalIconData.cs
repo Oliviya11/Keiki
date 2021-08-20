@@ -12,6 +12,12 @@ public class AnimalIconData: ScriptableObject
     [SerializeField]
     private Sprite tailSprite;
 
+    [SerializeField]
+    private GameObject animalAnimation;
+
+    [SerializeField]
+    private AudioClip whereIsMyTailClip;
+
     public Sprite AnimalIcon
     {
         get
@@ -33,6 +39,22 @@ public class AnimalIconData: ScriptableObject
         get
         {
             return animalType;
+        }
+    }
+
+    public GameObject AnimalAnimation
+    {
+        get
+        {
+            return animalAnimation;
+        }
+    }
+
+    public AudioClip WhereIsMyTailClip
+    {
+        get
+        {
+            return whereIsMyTailClip;
         }
     }
 }

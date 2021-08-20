@@ -3,12 +3,16 @@ using UnityEngine;
 
 public class AnimalCreator : MonoBehaviour
 {
-    public GameObject animalPrefab;
-    public Vector2 position;
+    [SerializeField]
+    private AnimalDataPrefab animalsPrefab;
 
-    public void create()
+    public void create(AnimalType animalType)
     {
-        GameObject animalGameObject = Instantiate(animalPrefab, Vector3.zero, Quaternion.identity);
-        animalGameObject.transform.position = position;
+        AnimalIconData data = animalsPrefab.getAnimalData(animalType);
+        if (data != null)
+        {
+            GameObject animalGameObject = Instantiate(data.AnimalAnimation, Vector3.zero, Quaternion.identity);
+            animalGameObject.transform.position = new Vector3(0, -3f, 0);
+        }
     }
 }

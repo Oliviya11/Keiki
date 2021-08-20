@@ -946,6 +946,101 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896247091}
   m_CullTransparentMesh: 0
+--- !u!1 &978413315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 978413317}
+  - component: {fileID: 978413316}
+  m_Layer: 0
+  m_Name: AnimalCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &978413316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978413315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08b74231e48246d8bc2f8f4adea9e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalsPrefab: {fileID: 1238529948}
+--- !u!4 &978413317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978413315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 327.54132, y: 140.65166, z: -25.28125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1238529947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238529949}
+  - component: {fileID: 1238529948}
+  m_Layer: 0
+  m_Name: AnimalDataPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1238529948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238529947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d565ce0e328e4c1da063dd0489653b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalTypeDataDictionary:
+    m_keys: 0000000001000000020000000400000005000000
+    m_values:
+    - {fileID: 11400000, guid: 59d17072758af4f2b8f6e5e51bf3fad6, type: 2}
+    - {fileID: 11400000, guid: 17513bab8ce2a417dbab52bc31f6b4d4, type: 2}
+    - {fileID: 11400000, guid: be51e4dfb639544259dbbf80f3f0e0d6, type: 2}
+    - {fileID: 11400000, guid: 86c93a4f513464d9ebfad48e5b6f9f89, type: 2}
+    - {fileID: 11400000, guid: 0a119c23b25474fbe92fe21de637ab3b, type: 2}
+--- !u!4 &1238529949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238529947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.23224072, y: -6.0697503, z: -8.506304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265856417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,6 +1239,7 @@ GameObject:
   - component: {fileID: 1719174005}
   - component: {fileID: 1719174004}
   - component: {fileID: 1719174010}
+  - component: {fileID: 1719174011}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1342,6 +1438,36 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1719174011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719174003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a07e4510c0a473e83f04f19cee39c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalTailData: []
+  tailPrefab: {fileID: 8262243613100787968, guid: 1621260d40a704b408230c83819b924c,
+    type: 3}
+  leftPanel: {fileID: 278120013}
+  rightPanel: {fileID: 896247092}
+  canvas: {fileID: 1719174008}
+  animalDataPrefab: {fileID: 1238529948}
+  animalCreator: {fileID: 978413316}
+  pigAnimation: {fileID: 0}
+  catAnimation: {fileID: 0}
+  dogAnimation: {fileID: 0}
+  mouseAnimation: {fileID: 0}
+  cowAnimation: {fileID: 0}
+  horseAnimation: {fileID: 0}
+  homeButton: {fileID: 126712403}
+  animalButton: {fileID: 674685173}
+  timer7s: {fileID: 349629760}
+  timer14s: {fileID: 1463073955}
 --- !u!1 &2084296690
 GameObject:
   m_ObjectHideFlags: 0

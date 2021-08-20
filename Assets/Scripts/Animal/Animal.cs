@@ -73,6 +73,8 @@ public class Animal : MonoBehaviour
         {
             pigTail.gameObject.SetActive(false);
         }
+
+        playIdle();
     }
 
     public string SadAnimationName

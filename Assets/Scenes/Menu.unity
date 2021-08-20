@@ -269,18 +269,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 690653738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8752dd8a55b5c4ec493a11dbc12f52e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 49918617819ba438fa825937441a99fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   iconButtonPrefab: {fileID: 2484369061590598751, guid: 793083fc1312f425aba6f3cdd5383abe,
     type: 3}
   animalIconData:
-  - {fileID: 11400000, guid: 56ac2f7fb74fd447e842735fe730dcea, type: 2}
   - {fileID: 11400000, guid: 0a119c23b25474fbe92fe21de637ab3b, type: 2}
-  - {fileID: 11400000, guid: be51e4dfb639544259dbbf80f3f0e0d6, type: 2}
-  - {fileID: 11400000, guid: 59d17072758af4f2b8f6e5e51bf3fad6, type: 2}
   - {fileID: 11400000, guid: 86c93a4f513464d9ebfad48e5b6f9f89, type: 2}
+  - {fileID: 11400000, guid: be51e4dfb639544259dbbf80f3f0e0d6, type: 2}
   - {fileID: 11400000, guid: 17513bab8ce2a417dbab52bc31f6b4d4, type: 2}
+  - {fileID: 11400000, guid: 59d17072758af4f2b8f6e5e51bf3fad6, type: 2}
+  - {fileID: 11400000, guid: 56ac2f7fb74fd447e842735fe730dcea, type: 2}
   canvas: {fileID: 690653743}
 --- !u!1 &1816393293
 GameObject:
