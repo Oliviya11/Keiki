@@ -13,6 +13,8 @@ public class AnimalCreator : MonoBehaviour
         {
             GameObject animalGameObject = Instantiate(data.AnimalAnimation, Vector3.zero, Quaternion.identity);
             animalGameObject.transform.position = new Vector3(0, -3f, 0);
+            Animal animal = animalGameObject.GetComponent<Animal>();
+            GameManager.Instance.currentAnimal = animal;
         }
     }
 }
