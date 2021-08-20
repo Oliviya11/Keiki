@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LaunchSceneManager : MonoBehaviour
+public class MenuSceneManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject iconButtonPrefab;
@@ -14,11 +14,18 @@ public class LaunchSceneManager : MonoBehaviour
     [SerializeField]
     Canvas canvas;
 
+    private SceneLoader sceneLoader = new SceneLoader();
+
     private const int ANIMALS_ICONS_NUMBER = 6;
     private const int X_DELTA = -410;
     private const int Y_DELTA = 215;
 
     public void Awake()
+    {
+        createMenuButtons();
+    }
+
+    void createMenuButtons()
     {
         int x = X_DELTA;
         int y = Y_DELTA;
@@ -52,7 +59,6 @@ public class LaunchSceneManager : MonoBehaviour
     {
         GameManager.Instance.reset();
         GameManager.Instance.choosenAnimalType = animal;
-        //Debug.LogError(animal);
-        SceneManager.LoadScene("Game");
+        sceneLoader.loadGameScene();
     }
 }

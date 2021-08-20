@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using Spine.Unity;
 using UnityEngine;
 
-public enum AnimalType
-{
-    Mouse,
-    Horse,
-    Dog,
-    Pig,
-    Cow,
-    Cat
-}
 public class GameManager
 {
     private static GameManager instance;

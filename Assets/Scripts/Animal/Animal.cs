@@ -4,6 +4,16 @@ using Spine;
 using Spine.Unity;
 using UnityEngine;
 
+public enum AnimalType
+{
+    Mouse,
+    Horse,
+    Dog,
+    Pig,
+    Cow,
+    Cat
+}
+
 public class Animal : MonoBehaviour
 {
     public SkeletonAnimation skeletonAnimation;

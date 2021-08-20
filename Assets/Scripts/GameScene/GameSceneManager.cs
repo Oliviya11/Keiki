@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Spine;
 using Spine.Unity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +8,8 @@ using UnityEngine.UI;
 
 public class GameSceneManager : MonoBehaviour
 {
+    private SceneLoader onceSceneLoader = new SceneLoader();
+
     [SerializeField]
     private List<AnimalIconData> animalTailData;
 
@@ -68,13 +69,11 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField]
     private Timer timer14s;
 
-    private bool isMenuLoad = false;
-
     public void Awake()
     {
         GameManager.Instance.gameSceneManager = this;
         createAnimal();
-        homeButton.onClick.AddListener(loadMenuScene);
+        homeButton.onClick.AddListener(onceSceneLoader.loadMenuScene);
         animalButton.onClick.AddListener(launchTapAnimation);
         GameManager.Instance.initWithTimers(timer7s, timer14s);
     }
@@ -82,15 +81,6 @@ public class GameSceneManager : MonoBehaviour
     void launchTapAnimation()
     {
         GameManager.Instance.currentAnimal.playTap();
-    }
-
-    void loadMenuScene()
-    {
-        if (!isMenuLoad)
-        {
-            SceneManager.LoadScene("Menu");
-            isMenuLoad = true;
-        }
     }
 
     void playSound()
@@ -291,6 +281,6 @@ public class GameSceneManager : MonoBehaviour
     IEnumerator waitAndloadMenuSceneImpl ()
     {
         yield return new WaitForSeconds(2f);
-        loadMenuScene();
+        onceSceneLoader.loadMenuScene();
     }
 }
