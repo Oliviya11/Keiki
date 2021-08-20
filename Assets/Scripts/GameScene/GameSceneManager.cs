@@ -86,32 +86,7 @@ public class GameSceneManager : MonoBehaviour
 
     void playWhereIsMyTail()
     {
-        AnimalType animalType = GameManager.Instance.choosenAnimalType;
-
-        if (animalType == AnimalType.Pig)
-        {
-            SoundManager.playPigTailSound();
-        }
-        else if (animalType == AnimalType.Cat)
-        {
-            SoundManager.playCatTailSound();
-        }
-        else if (animalType == AnimalType.Dog)
-        {
-            SoundManager.playDogTailSound();
-        }
-        else if (animalType == AnimalType.Mouse)
-        {
-            SoundManager.playMouseTailSound();
-        }
-        else if (animalType == AnimalType.Cow)
-        {
-            SoundManager.playCowTailSound();
-        }
-        else if (animalType == AnimalType.Horse)
-        {
-            SoundManager.playHorseTailSound();
-        }
+        
     }
 
     public void playSoundAndAction(Action action)

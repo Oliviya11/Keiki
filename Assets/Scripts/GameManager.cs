@@ -157,13 +157,13 @@ public class GameManager
                     currentAnimal.playNo(currentAnimal.SadAnimationName);
                 }
 
-                SoundManager.playIASound();
+                //SoundManager.playIASound();
             }
             else
             {
                 isCorrectAnswerChoosen = true;
                 currentAnimal.playYes();
-                SoundManager.playCASound();
+                //SoundManager.playCASound();
                 gameSceneManager.waitAndloadMenuScene();
             }
 

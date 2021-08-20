@@ -15,3 +15,5 @@ MonoBehaviour:
   animalType: 3
   animalIcon: {fileID: 21300000, guid: f12e4fb309fa24512bafb21df178e6d2, type: 3}
   tailSprite: {fileID: 21300000, guid: b25ba631d003d4c5bb6747841a739255, type: 3}
+  animalAnimation: {fileID: 0}
+  whereIsMyTailClip: {fileID: 8300000, guid: 94fada5a390d04f3b9fe5b5b8f6a6348, type: 3}

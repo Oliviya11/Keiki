@@ -75,6 +75,13 @@ public class Animal : MonoBehaviour
         }
 
         playIdle();
+        StartCoroutine(waitAndPlayWhereIsMyTail());
+    }
+
+    IEnumerator waitAndPlayWhereIsMyTail()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SoundManager.Instance.playAnimalSound(type);
     }
 
     public string SadAnimationName
